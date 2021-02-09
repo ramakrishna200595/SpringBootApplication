@@ -22,6 +22,11 @@ public class DepartmentService {
         List<Department> deptList = repository.findAll();
          
         if(deptList.size() > 0) {
+        	deptList.forEach(dept -> {
+        		if(dept.getEmployees() != null) {
+        			dept.setEmpCount(dept.getEmployees().size());
+        		}
+        	});
             return deptList;
         } else {
             return new ArrayList<Department>();

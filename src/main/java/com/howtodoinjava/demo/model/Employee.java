@@ -12,8 +12,8 @@ import javax.persistence.Table;
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     
     @Column(name="first_name")
     private String firstName;
@@ -25,13 +25,13 @@ public class Employee {
     private String email;
     
     @Column(name="department_id")
-    private Long departmentId;
+    private long departmentId;
     
-    public Long getId() {
+    public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -59,7 +59,15 @@ public class Employee {
 		this.email = email;
 	}
 
-    @Override
+    public long getDepartmentId() {
+		return departmentId;
+	}
+
+	public void setDepartmentId(long departmentId) {
+		this.departmentId = departmentId;
+	}
+
+	@Override
     public String toString() {
         return "EmployeeEntity [id=" + id + ", firstName=" + firstName + 
                 ", lastName=" + lastName + ", email=" + email   + "]";

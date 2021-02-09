@@ -28,7 +28,7 @@ public class EmployeeService {
         }
     }
      
-    public Employee getEmployeeById(Long id) throws RecordNotFoundException
+    public Employee getEmployeeById(long id) throws RecordNotFoundException
     {
         Optional<Employee> employee = repository.findById(id);
          
@@ -71,7 +71,7 @@ public class EmployeeService {
         }
     }
      
-    public void deleteEmployeeById(Long id) throws RecordNotFoundException
+    public void deleteEmployeeById(long id) throws RecordNotFoundException
     {
         Optional<Employee> employee = repository.findById(id);
          

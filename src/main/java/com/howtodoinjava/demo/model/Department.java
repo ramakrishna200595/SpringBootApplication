@@ -11,13 +11,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="DEPARTMENT")
 public class Department {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
     @Column(name="dept_name")
@@ -25,6 +26,9 @@ public class Department {
     
     @OneToMany(mappedBy = "departmentId",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Employee> employees;
+    
+    @Transient
+    private int empCount;
 
 	public Long getId() {
 		return id;
@@ -48,6 +52,14 @@ public class Department {
 
 	public void setEmployees(List<Employee> employees) {
 		this.employees = employees;
+	}
+
+	public int getEmpCount() {
+		return empCount;
+	}
+
+	public void setEmpCount(int empCount) {
+		this.empCount = empCount;
 	}
     
 
